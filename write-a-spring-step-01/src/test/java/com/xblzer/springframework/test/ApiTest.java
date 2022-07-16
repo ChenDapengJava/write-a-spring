@@ -17,7 +17,7 @@ public class ApiTest {
         //1. 初始化Bean工厂
         BeanFactory beanFactory = new BeanFactory();
 
-        //2. 向Bean工厂注册一个Bean
+        //2. 向Bean工厂注册一个Bean，这里直接new一个对象传进去，后续版本再交给容器来创建
         BeanDefinition beanDefinition = new BeanDefinition(new UserService());
         beanFactory.registerBeanDefinition("userService", beanDefinition);
 

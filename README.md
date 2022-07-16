@@ -4,5 +4,12 @@
 
 ## write-a-spring-step-01
 
-手写一个能够定义、注册、使用bean的容器。
+创建一个简单的Bean容器
 
+![Bean容器简单实现](https://picbed-for-typora.oss-cn-beijing.aliyuncs.com/image/image-20220716232426051.png)
+
+## write-a-spring-step-02
+
+实现Bean的定义、注册、获取
+
+![实现Bean的定义注册获取](https://picbed-for-typora.oss-cn-beijing.aliyuncs.com/image/image-20220716233243905.png)
