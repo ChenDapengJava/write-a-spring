@@ -7,6 +7,7 @@ import org.junit.Test;
 
 /**
  * 测试用例
+ * 测试简单的 Bean 容器
  * @author 行百里者
  * @date 2022-07-16 22:49
  */
@@ -14,6 +15,7 @@ public class ApiTest {
 
     @Test
     public void testBeanFactory() {
+
         //1. 初始化Bean工厂
         BeanFactory beanFactory = new BeanFactory();
 
