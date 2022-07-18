@@ -13,3 +13,9 @@
 实现Bean的定义、注册、获取
 
 ![实现Bean的定义注册获取](https://picbed-for-typora.oss-cn-beijing.aliyuncs.com/image/image-20220716233243905.png)
+
+## write-a-spring-step-03
+
+实例化策略：JDK，Cglib
+
+![DefaultListableBeanFactory](https://picbed-for-typora.oss-cn-beijing.aliyuncs.com/image/DefaultListableBeanFactory.png)
