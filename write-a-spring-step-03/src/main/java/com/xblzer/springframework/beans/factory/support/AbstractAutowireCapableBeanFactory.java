@@ -6,7 +6,7 @@ import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 import java.lang.reflect.Constructor;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-18 17:19
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory {

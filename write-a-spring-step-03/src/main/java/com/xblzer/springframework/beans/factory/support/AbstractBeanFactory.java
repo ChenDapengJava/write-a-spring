@@ -5,7 +5,7 @@ import com.xblzer.springframework.beans.factory.BeanFactory;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-18 16:47
  */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {

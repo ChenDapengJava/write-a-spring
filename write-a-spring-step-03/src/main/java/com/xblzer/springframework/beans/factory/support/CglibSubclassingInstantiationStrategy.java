@@ -9,7 +9,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * Cglib 实例化策略
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-18 17:12
  */
 public class CglibSubclassingInstantiationStrategy implements InstantiationStrategy {

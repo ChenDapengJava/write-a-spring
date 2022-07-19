@@ -3,7 +3,7 @@ package com.xblzer.springframework.beans.factory.support;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-18 17:42
  */
 public interface BeanDefinitionRegistry {

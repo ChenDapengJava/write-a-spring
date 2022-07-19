@@ -1,7 +1,7 @@
 package com.xblzer.springframework.beans.factory.config;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-18 15:57
  */
 public class BeanDefinition {
