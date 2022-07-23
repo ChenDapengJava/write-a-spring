@@ -3,7 +3,7 @@ package com.xblzer.springframework.beans.factory.config;
 import com.xblzer.springframework.beans.PropertyValues;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-19 11:07
  */
 public class BeanDefinition {

@@ -6,7 +6,7 @@ import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 import java.lang.reflect.Constructor;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-19 15:19
  */
 public class SimpleInstantiationStrategy implements InstantiationStrategy {
