@@ -19,3 +19,11 @@
 实例化策略：JDK，Cglib
 
 ![DefaultListableBeanFactory](https://picbed-for-typora.oss-cn-beijing.aliyuncs.com/image/DefaultListableBeanFactory.png)
+
+## write-a-spring-step-04
+
+注入属性和依赖对象
+
+## write-a-spring-step-05
+
+资源加载器解析文件注册Bean
