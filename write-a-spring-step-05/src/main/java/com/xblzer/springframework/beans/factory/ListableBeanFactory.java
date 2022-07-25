@@ -5,7 +5,7 @@ import com.xblzer.springframework.beans.BeansException;
 import java.util.Map;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-24 17:42
  */
 public interface ListableBeanFactory extends BeanFactory {
