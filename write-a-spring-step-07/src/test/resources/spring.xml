@@ -4,7 +4,7 @@
     <bean id="userDao" class="com.xblzer.springframework.test.bean.UserDao" init-method="initDataMethod" destroy-method="destroyDataMethod" />
 
     <bean id="userService" class="com.xblzer.springframework.test.bean.UserService">
-        <property name="userId" value="1001"/>
+        <property name="userId" value="10001"/>
         <property name="company" value="华为"/>
         <property name="location" value="深圳"/>
         <property name="userDao" ref="userDao"/>

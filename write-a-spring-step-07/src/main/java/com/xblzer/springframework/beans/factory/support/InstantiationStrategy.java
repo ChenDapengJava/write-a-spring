@@ -7,7 +7,7 @@ import java.lang.reflect.Constructor;
 
 /**
  * 对象实例化策略
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-25 23:09
  */
 public interface InstantiationStrategy {

@@ -4,7 +4,7 @@ import com.xblzer.springframework.beans.BeansException;
 import com.xblzer.springframework.beans.factory.BeanFactory;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-25 22:40
  */
 public interface AutowireCapableBeanFactory extends BeanFactory {

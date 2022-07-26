@@ -11,7 +11,7 @@ import java.util.Map;
 
 /**
  * 抽象 应用上下文
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 17:30
  */
 public abstract class AbstractApplicationContext extends DefaultResourceLoader implements ConfigurableApplicationContext {

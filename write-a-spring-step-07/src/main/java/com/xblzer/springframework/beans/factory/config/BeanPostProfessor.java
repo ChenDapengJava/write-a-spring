@@ -3,7 +3,7 @@ package com.xblzer.springframework.beans.factory.config;
 import com.xblzer.springframework.beans.BeansException;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-25 22:55
  */
 public interface BeanPostProfessor {

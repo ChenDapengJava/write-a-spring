@@ -4,7 +4,7 @@ import com.xblzer.springframework.beans.BeansException;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 17:01
  */
 public interface BeanDefinitionRegistry {

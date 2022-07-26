@@ -4,7 +4,7 @@ import com.xblzer.springframework.beans.factory.support.DefaultListableBeanFacto
 import com.xblzer.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 18:16
  */
 public abstract class AbstractXmlApplicationContext extends AbstractRefreshableApplicationContext {
