@@ -8,7 +8,7 @@ import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 import java.lang.reflect.Method;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 0:04
  */
 public class DisposableBeanAdapter implements DisposableBean {

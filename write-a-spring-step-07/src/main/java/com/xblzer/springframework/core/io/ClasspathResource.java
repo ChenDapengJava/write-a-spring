@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 17:42
  */
 public class ClasspathResource implements Resource {

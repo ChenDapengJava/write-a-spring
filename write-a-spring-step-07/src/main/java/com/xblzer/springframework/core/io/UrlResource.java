@@ -9,7 +9,7 @@ import java.net.URL;
 import java.net.URLConnection;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 17:31
  */
 public class UrlResource implements Resource {

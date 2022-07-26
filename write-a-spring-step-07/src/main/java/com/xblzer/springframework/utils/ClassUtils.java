@@ -1,7 +1,7 @@
 package com.xblzer.springframework.utils;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-26 17:43
  */
 public class ClassUtils {

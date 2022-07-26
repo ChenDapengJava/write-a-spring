@@ -16,7 +16,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-07-25 23:39
  */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory {
