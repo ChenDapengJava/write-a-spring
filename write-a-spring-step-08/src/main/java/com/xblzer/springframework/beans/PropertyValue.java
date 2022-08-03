@@ -1,7 +1,7 @@
 package com.xblzer.springframework.beans;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 17:49
  */
 public class PropertyValue {

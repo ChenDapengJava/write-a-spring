@@ -9,7 +9,7 @@ import java.lang.reflect.Constructor;
 import java.util.HashMap;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 22:20
  */
 public class CglibSubClassingInstantiationStrategy implements InstantiationStrategy {

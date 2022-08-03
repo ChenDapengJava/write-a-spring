@@ -4,7 +4,7 @@ import com.xblzer.springframework.beans.BeansException;
 
 /**
  * 用于修改新实例化 Bean 对象的扩展点
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 18:15
  */
 public interface BeanPostProfessor {

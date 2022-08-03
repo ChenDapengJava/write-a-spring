@@ -5,7 +5,7 @@ import com.xblzer.springframework.beans.factory.ConfigurableListableBeanFactory;
 
 /**
  * 允许自定义修改 BeanDefinition 属性信息
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 18:19
  */
 public interface BeanFactoryPostProfessor {

@@ -5,7 +5,7 @@ import com.xblzer.springframework.beans.factory.BeanFactory;
 
 /**
  * 有 Autowire 扩展能力的 BeanFactory
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 18:24
  */
 public interface AutowireCapableBeanFactory extends BeanFactory {

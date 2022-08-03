@@ -7,7 +7,7 @@ import com.xblzer.springframework.beans.factory.config.BeanPostProfessor;
 import com.xblzer.springframework.beans.factory.config.ConfigurableBeanFactory;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 18:29
  */
 public interface ConfigurableListableBeanFactory extends ListableBeanFactory, AutowireCapableBeanFactory, ConfigurableBeanFactory {

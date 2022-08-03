@@ -3,7 +3,7 @@ package com.xblzer.springframework.beans.factory.config;
 import com.xblzer.springframework.beans.factory.HierarchicalBeanFactory;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-03 18:15
  */
 public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, SingletonBeanRegistry {
