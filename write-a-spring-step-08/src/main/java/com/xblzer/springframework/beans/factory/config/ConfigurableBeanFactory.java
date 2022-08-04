@@ -14,9 +14,9 @@ public interface ConfigurableBeanFactory extends HierarchicalBeanFactory, Single
 
     /**
      * 添加 BeanPostProfessor
-     * @param beanPostProfessor BeanPostProfessor
+     * @param beanPostProcessor BeanPostProfessor
      */
-    void addBeanPostProfessor(BeanPostProfessor beanPostProfessor);
+    void addBeanPostProcessor(BeanPostProcessor beanPostProcessor);
 
     /**
      * 销毁单例对象

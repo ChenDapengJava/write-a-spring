@@ -2,9 +2,8 @@ package com.xblzer.springframework.context.support;
 
 import com.xblzer.springframework.beans.BeansException;
 import com.xblzer.springframework.beans.factory.ConfigurableListableBeanFactory;
-import com.xblzer.springframework.beans.factory.config.BeanFactoryPostProfessor;
-import com.xblzer.springframework.beans.factory.config.BeanPostProfessor;
-import com.xblzer.springframework.beans.factory.config.ConfigurableBeanFactory;
+import com.xblzer.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import com.xblzer.springframework.beans.factory.config.BeanPostProcessor;
 import com.xblzer.springframework.context.ConfigurableApplicationContext;
 import com.xblzer.springframework.core.io.DefaultResourceLoader;
 
@@ -21,16 +20,16 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
     protected abstract void refreshBeanFactory() throws BeansException;
 
     private void invokeBeanFactoryPostProfessors(ConfigurableListableBeanFactory beanFactory) {
-        Map<String, BeanFactoryPostProfessor> beanFactoryPostProfessorMap = beanFactory.getBeansOfType(BeanFactoryPostProfessor.class);
-        for (BeanFactoryPostProfessor beanFactoryPostProfessor : beanFactoryPostProfessorMap.values()) {
-            beanFactoryPostProfessor.postProcessBeanFactory(beanFactory);
+        Map<String, BeanFactoryPostProcessor> beanFactoryPostProfessorMap = beanFactory.getBeansOfType(BeanFactoryPostProcessor.class);
+        for (BeanFactoryPostProcessor beanFactoryPostProcessor : beanFactoryPostProfessorMap.values()) {
+            beanFactoryPostProcessor.postProcessBeanFactory(beanFactory);
         }
     }
 
     private void registerBeanPostProfessors(ConfigurableListableBeanFactory beanFactory) {
-        Map<String, BeanPostProfessor> beanPostProfessorMap = beanFactory.getBeansOfType(BeanPostProfessor.class);
-        for (BeanPostProfessor beanPostProfessor : beanPostProfessorMap.values()) {
-            beanFactory.addBeanPostProfessor(beanPostProfessor);
+        Map<String, BeanPostProcessor> beanPostProfessorMap = beanFactory.getBeansOfType(BeanPostProcessor.class);
+        for (BeanPostProcessor beanPostProcessor : beanPostProfessorMap.values()) {
+            beanFactory.addBeanPostProcessor(beanPostProcessor);
         }
     }
 
@@ -86,7 +85,7 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
         ConfigurableListableBeanFactory beanFactory = getBeanFactory();
 
         // 3. 添加 ApplicationContextAwareProcessor，让继承自 ApplicationContextAware 的 Bean 对象都能感知所属的 ApplicationContext
-//        beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
+        beanFactory.addBeanPostProcessor(new ApplicationContextAwareProcessor(this));
 
         // 4. 在 Bean 实例化之前，执行 BeanFactoryPostProcessor (Invoke factory processors registered as beans in the context.)
         invokeBeanFactoryPostProfessors(beanFactory);

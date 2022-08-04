@@ -40,7 +40,7 @@ public class DefaultSingletonBeanRegistry implements SingletonBeanRegistry {
             DisposableBean disposableBean = this.disposableBeans.remove(beanName);
             try {
                 disposableBean.destroy();
-            } catch (BeansException e) {
+            } catch (Exception e) {
                 throw new BeansException("Bean [" + beanName + "]的销毁方法抛出异常", e);
             }
         }

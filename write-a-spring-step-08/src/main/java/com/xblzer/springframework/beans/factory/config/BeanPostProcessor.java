@@ -7,7 +7,7 @@ import com.xblzer.springframework.beans.BeansException;
  * @author 行百里者
  * @date 2022-08-03 18:15
  */
-public interface BeanPostProfessor {
+public interface BeanPostProcessor {
 
     /**
      * 在 Bean 对象初始化之前，执行此方法

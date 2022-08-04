@@ -2,7 +2,7 @@ package com.xblzer.springframework.beans.factory.support;
 
 import com.xblzer.springframework.beans.BeansException;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
-import com.xblzer.springframework.beans.factory.config.BeanPostProfessor;
+import com.xblzer.springframework.beans.factory.config.BeanPostProcessor;
 import com.xblzer.springframework.beans.factory.config.ConfigurableBeanFactory;
 import com.xblzer.springframework.utils.ClassUtils;
 
@@ -17,7 +17,7 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
 
     private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
 
-    private final List<BeanPostProfessor> beanPostProfessors = new ArrayList<>();
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
 
     @Override
     public Object getBean(String name) throws BeansException {
@@ -62,16 +62,16 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException;
 
     @Override
-    public void addBeanPostProfessor(BeanPostProfessor beanPostProfessor) {
-        this.beanPostProfessors.remove(beanPostProfessor);
-        this.beanPostProfessors.add(beanPostProfessor);
+    public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
+        this.beanPostProcessors.remove(beanPostProcessor);
+        this.beanPostProcessors.add(beanPostProcessor);
     }
 
     public ClassLoader getBeanClassLoader() {
         return beanClassLoader;
     }
 
-    public List<BeanPostProfessor> getBeanPostProfessors() {
-        return beanPostProfessors;
+    public List<BeanPostProcessor> getBeanPostProfessors() {
+        return beanPostProcessors;
     }
 }

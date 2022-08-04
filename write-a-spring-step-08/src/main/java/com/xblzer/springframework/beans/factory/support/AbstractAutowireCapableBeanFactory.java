@@ -5,11 +5,10 @@ import cn.hutool.core.util.StrUtil;
 import com.xblzer.springframework.beans.BeansException;
 import com.xblzer.springframework.beans.PropertyValue;
 import com.xblzer.springframework.beans.PropertyValues;
-import com.xblzer.springframework.beans.factory.DisposableBean;
-import com.xblzer.springframework.beans.factory.InitializingBean;
+import com.xblzer.springframework.beans.factory.*;
 import com.xblzer.springframework.beans.factory.config.AutowireCapableBeanFactory;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
-import com.xblzer.springframework.beans.factory.config.BeanPostProfessor;
+import com.xblzer.springframework.beans.factory.config.BeanPostProcessor;
 import com.xblzer.springframework.beans.factory.config.BeanReference;
 
 import java.lang.reflect.Constructor;
@@ -110,7 +109,18 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
      */
     private Object initializeBean(String beanName, Object bean, BeanDefinition beanDefinition) {
 
-        // TODO aware 接口
+        // 感知调用操作
+        if (bean instanceof Aware) {
+            if (bean instanceof BeanFactoryAware) {
+                ((BeanFactoryAware) bean).setBeanFactory(this);
+            }
+            if (bean instanceof BeanClassLoaderAware) {
+                ((BeanClassLoaderAware) bean).setClassLoader(getBeanClassLoader());
+            }
+            if (bean instanceof BeanNameAware) {
+                ((BeanNameAware) bean).setBeanName(beanName);
+            }
+        }
 
         // 初始化前置方法（预初始化）
         Object wrappedBean = applyBeanPostProfessorsBeforeInitialization(bean, beanName);
@@ -160,8 +170,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     @Override
     public Object applyBeanPostProfessorsBeforeInitialization(Object existingBean, String beanName) throws BeansException {
         Object result = existingBean;
-        for (BeanPostProfessor beanPostProfessor : getBeanPostProfessors()) {
-            Object current = beanPostProfessor.postProfessBeforeInitialization(result, beanName);
+        for (BeanPostProcessor beanPostProcessor : getBeanPostProfessors()) {
+            Object current = beanPostProcessor.postProfessBeforeInitialization(result, beanName);
             if (null == current) {
                 return result;
             }
@@ -181,8 +191,8 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     @Override
     public Object applyBeanPostProfessorsAfterInitialization(Object existingBean, String beanName) throws BeansException {
         Object result = existingBean;
-        for (BeanPostProfessor beanPostProfessor : getBeanPostProfessors()) {
-            Object current = beanPostProfessor.postProfessAfterInitialization(result, beanName);
+        for (BeanPostProcessor beanPostProcessor : getBeanPostProfessors()) {
+            Object current = beanPostProcessor.postProfessAfterInitialization(result, beanName);
             if (null == current) {
                 return result;
             }
