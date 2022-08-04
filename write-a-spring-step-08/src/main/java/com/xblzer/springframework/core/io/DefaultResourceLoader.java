@@ -6,7 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 12:15
  */
 public class DefaultResourceLoader implements ResourceLoader {

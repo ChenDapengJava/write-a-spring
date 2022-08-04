@@ -5,7 +5,7 @@ import com.xblzer.springframework.beans.factory.ConfigurableListableBeanFactory;
 import com.xblzer.springframework.beans.factory.support.DefaultListableBeanFactory;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 14:56
  */
 public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {

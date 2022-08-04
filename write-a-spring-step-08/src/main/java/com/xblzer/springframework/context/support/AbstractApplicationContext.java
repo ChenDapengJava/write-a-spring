@@ -11,7 +11,7 @@ import com.xblzer.springframework.core.io.DefaultResourceLoader;
 import java.util.Map;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 12:20
  */
 public abstract class AbstractApplicationContext extends DefaultResourceLoader implements ConfigurableApplicationContext {

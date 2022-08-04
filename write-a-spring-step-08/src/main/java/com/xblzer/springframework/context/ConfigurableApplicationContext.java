@@ -3,7 +3,7 @@ package com.xblzer.springframework.context;
 import com.xblzer.springframework.beans.BeansException;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 12:17
  */
 public interface ConfigurableApplicationContext extends ApplicationContext {

@@ -5,7 +5,7 @@ import com.xblzer.springframework.core.io.Resource;
 import com.xblzer.springframework.core.io.ResourceLoader;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 15:03
  */
 public interface BeanDefinitionReader {

@@ -3,7 +3,7 @@ package com.xblzer.springframework.context.support;
 import com.xblzer.springframework.beans.BeansException;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-04 15:20
  */
 public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContext {
