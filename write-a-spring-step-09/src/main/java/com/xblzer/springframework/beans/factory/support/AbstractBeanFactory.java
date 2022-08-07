@@ -1,6 +1,7 @@
 package com.xblzer.springframework.beans.factory.support;
 
 import com.xblzer.springframework.beans.BeansException;
+import com.xblzer.springframework.beans.factory.FactoryBean;
 import com.xblzer.springframework.beans.factory.config.BeanDefinition;
 import com.xblzer.springframework.beans.factory.config.BeanPostProcessor;
 import com.xblzer.springframework.beans.factory.config.ConfigurableBeanFactory;
@@ -10,10 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * 这里原来继承的是 DefaultSingletonBeanRegistry，现在改为继承 FactoryBeanRegistrySupport
+ * 这样就可以有扩展 FactoryBean 的能力
  * @author 行百里者
  * @date 2022-08-03 22:33
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
+public abstract class AbstractBeanFactory extends FactoryBeanRegistrySupport implements ConfigurableBeanFactory {
 
     private ClassLoader beanClassLoader = ClassUtils.getDefaultClassLoader();
 
@@ -35,12 +38,26 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     }
 
     protected <T> T doGetBean(String name, Object[] args) {
-        Object singleton = getSingleton(name);
-        if (singleton != null) {
-            return (T) singleton;
+        Object sharedInstance = getSingleton(name);
+        if (sharedInstance != null) {
+            // 如果是 FactoryBean，则需要调用 FactoryBean#getObject
+            return (T) getObjectForBeanInstance(sharedInstance, name);
         }
         BeanDefinition beanDefinition = getBeanDefinition(name);
-        return (T) createBean(name, beanDefinition, args);
+        Object bean =  createBean(name, beanDefinition, args);
+        return (T) getObjectForBeanInstance(bean, name);
+    }
+
+    private Object getObjectForBeanInstance(Object beanInstance, String beanName) {
+        if (!(beanInstance instanceof FactoryBean)) {
+            return beanInstance;
+        }
+        Object object = getCachedObjectForFactoryBean(beanName);
+        if (null == object) {
+            FactoryBean<?> factoryBean = (FactoryBean<?>) beanInstance;
+            object = getObjectFromFactoryBean(factoryBean, beanName);
+        }
+        return object;
     }
 
     /**
