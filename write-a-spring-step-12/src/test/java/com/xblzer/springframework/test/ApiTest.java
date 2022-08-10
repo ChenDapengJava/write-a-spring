@@ -7,10 +7,12 @@ import com.xblzer.springframework.aop.aspectj.AspectJExpressionPointcut;
 import com.xblzer.springframework.aop.framework.Cglib2AopProxy;
 import com.xblzer.springframework.aop.framework.JdkDynamicAopProxy;
 import com.xblzer.springframework.aop.framework.ReflectiveMethodInvocation;
+import com.xblzer.springframework.context.support.ClassPathXmlApplicationContext;
 import com.xblzer.springframework.test.bean.IUserService;
 import com.xblzer.springframework.test.bean.UserService;
 import com.xblzer.springframework.test.bean.UserServiceInterceptor;
 import org.aopalliance.intercept.MethodInterceptor;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationHandler;
@@ -22,6 +24,27 @@ import java.lang.reflect.Proxy;
  * @date 2022-08-04 15:47
  */
 public class ApiTest {
+
+    private AdvisedSupport advisedSupport;
+
+    @Before
+    public void init() {
+        // 目标对象
+        IUserService userService = new UserService();
+        // 组装代理信息
+        advisedSupport = new AdvisedSupport();
+        advisedSupport.setTargetSource(new TargetSource(userService));
+        advisedSupport.setMethodInterceptor(new UserServiceInterceptor());
+        advisedSupport.setMethodMatcher(new AspectJExpressionPointcut("execution(* com.xblzer.springframework.test.bean.IUserService.*(..))"));
+    }
+
+    @Test
+    public void test_aop() {
+        ClassPathXmlApplicationContext applicationContext = new ClassPathXmlApplicationContext("classpath:spring.xml");
+
+        IUserService userService = applicationContext.getBean("userService", IUserService.class);
+        System.out.println("测试结果：" + userService.queryUserInfo());
+    }
 
     @Test
     public void test_dynamic() {
@@ -77,7 +100,7 @@ public class ApiTest {
     }
 
     @Test
-    public void test_aop() throws NoSuchMethodException {
+    public void test_aop_v1() throws NoSuchMethodException {
         AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut("execution (* com.xblzer.springframework.test.bean.UserService.*(..))");
 
         Class<UserService> clazz = UserService.class;

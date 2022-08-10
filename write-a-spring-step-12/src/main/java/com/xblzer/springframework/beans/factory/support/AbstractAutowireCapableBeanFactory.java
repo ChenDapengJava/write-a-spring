@@ -35,6 +35,11 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
     protected Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException {
         Object bean;
         try {
+            // 判断是否返回代理 Bean 对象
+            bean = resolveBeforeInstantiation(beanName, beanDefinition);
+            if (null != bean) {
+                return bean;
+            }
             bean = createBeanInstance(beanName, beanDefinition, args);
             // 给 Bean 填充属性
             applyPropertyValues(beanName, bean, beanDefinition);
@@ -53,6 +58,15 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 
         return bean;
     }
+
+    protected Object resolveBeforeInstantiation(String beanName, BeanDefinition beanDefinition) {
+        Object bean = applyBeanPostProcessorsBeforeInitialization(beanDefinition.getBeanClass(), beanName);
+        if (null == bean) {
+            bean = applyBeanPostProcessorsAfterInitialization(beanDefinition.getBeanClass(), beanName);
+        }
+        return bean;
+    }
+
 
     /**
      * 创建 Bean 实例
@@ -126,7 +140,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
         }
 
         // 初始化前置方法（预初始化）
-        Object wrappedBean = applyBeanPostProfessorsBeforeInitialization(bean, beanName);
+        Object wrappedBean = applyBeanPostProcessorsBeforeInitialization(bean, beanName);
         // 执行初始化
         try {
             invokeInitMethods(beanName, wrappedBean, beanDefinition);
@@ -134,7 +148,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
             throw new BeansException("Invocation of init method of bean[" + beanName + "] failed", e);
         }
         // 执行初始化后置方法
-        wrappedBean = applyBeanPostProfessorsAfterInitialization(wrappedBean, beanName);
+        wrappedBean = applyBeanPostProcessorsAfterInitialization(wrappedBean, beanName);
         return wrappedBean;
     }
 
@@ -171,10 +185,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
      * @throws BeansException 抛出 BeansException 异常
      */
     @Override
-    public Object applyBeanPostProfessorsBeforeInitialization(Object existingBean, String beanName) throws BeansException {
+    public Object applyBeanPostProcessorsBeforeInitialization(Object existingBean, String beanName) throws BeansException {
         Object result = existingBean;
         for (BeanPostProcessor beanPostProcessor : getBeanPostProfessors()) {
-            Object current = beanPostProcessor.postProfessBeforeInitialization(result, beanName);
+            Object current = beanPostProcessor.postProcessBeforeInitialization(result, beanName);
             if (null == current) {
                 return result;
             }
@@ -192,10 +206,10 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
      * @throws BeansException 抛出 BeansException 异常
      */
     @Override
-    public Object applyBeanPostProfessorsAfterInitialization(Object existingBean, String beanName) throws BeansException {
+    public Object applyBeanPostProcessorsAfterInitialization(Object existingBean, String beanName) throws BeansException {
         Object result = existingBean;
         for (BeanPostProcessor beanPostProcessor : getBeanPostProfessors()) {
-            Object current = beanPostProcessor.postProfessAfterInitialization(result, beanName);
+            Object current = beanPostProcessor.postProcessAfterInitialization(result, beanName);
             if (null == current) {
                 return result;
             }

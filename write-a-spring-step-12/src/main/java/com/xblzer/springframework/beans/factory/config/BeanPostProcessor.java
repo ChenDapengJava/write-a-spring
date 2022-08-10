@@ -16,7 +16,7 @@ public interface BeanPostProcessor {
      * @return Bean
      * @throws BeansException 抛出 BeansException 异常
      */
-    Object postProfessBeforeInitialization(Object bean, String beanName) throws BeansException;
+    Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException;
 
     /**
      * 在 Bean 对象初始化之后，执行此方法
@@ -25,5 +25,5 @@ public interface BeanPostProcessor {
      * @return Bean
      * @throws BeansException 抛出 BeansException 异常
      */
-    Object postProfessAfterInitialization(Object bean, String beanName) throws BeansException;
+    Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException;
 }
