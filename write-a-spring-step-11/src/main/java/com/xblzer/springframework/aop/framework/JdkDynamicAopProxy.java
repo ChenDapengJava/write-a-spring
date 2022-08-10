@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-08 22:48
  */
 public class JdkDynamicAopProxy implements AopProxy, InvocationHandler {

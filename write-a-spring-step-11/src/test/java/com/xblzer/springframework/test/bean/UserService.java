@@ -3,7 +3,7 @@ package com.xblzer.springframework.test.bean;
 import java.util.Random;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-08 21:54
  */
 public class UserService implements IUserService {

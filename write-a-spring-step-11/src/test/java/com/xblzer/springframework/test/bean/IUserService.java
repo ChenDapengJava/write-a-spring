@@ -1,7 +1,7 @@
 package com.xblzer.springframework.test.bean;
 
 /**
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-08 21:53
  */
 public interface IUserService {

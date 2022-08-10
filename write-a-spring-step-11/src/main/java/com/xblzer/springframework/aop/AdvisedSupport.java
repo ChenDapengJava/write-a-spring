@@ -8,7 +8,7 @@ import org.aopalliance.intercept.MethodInterceptor;
  * 主要是用于把代理、拦截、匹配的各项属性包装到一个类中，方便在 Proxy 实现类进行使用
  * （类似于包装入参）
  *
- * @author chenpeng
+ * @author 行百里者
  * @date 2022-08-08 22:29
  */
 public class AdvisedSupport {
